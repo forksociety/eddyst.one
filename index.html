@@ -1,0 +1,80 @@
+<html>
+	<head>
+		<title>Hex code for Eddystone | Eddyst.one</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+        <link rel="stylesheet" href="./css/semantic.css">
+        <style>
+        body {
+            background: -webkit-linear-gradient(left bottom, #005C97, #363795); /* For Safari 5.1 to 6.0 */
+            background: -o-linear-gradient(top right, #005C97, #363795); /* For Opera 11.1 to 12.0 */
+            background: -moz-linear-gradient(top right, #005C97, #363795); /* For Firefox 3.6 to 15 */
+            background: linear-gradient(to top right, #005C97, #363795); /* Standard syntax */
+        }
+        
+        
+        .holder {
+          height: inherit;max-width: 300px;
+        }
+        .holder .middle {
+          height: 100%;
+        }
+        .holder .middle .segment {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            min-height: 400px;
+            padding: 35px;
+        }
+        .logo img {
+            display: block;
+            margin: auto;
+            width: 50%;
+            margin-bottom: 20px;
+        }
+        .hexData {
+            font-family: 'Source Code Pro', monospace;
+        }
+        </style>
+	</head>
+	<body>
+        <div class="ui container holder">
+            <div class="ui middle aligned center aligned grid">
+                <div class="ten wide column">
+                    <form class="ui large form">
+                        <div class="ui piled segment">
+                            <div class="field">
+                            <h2 class="ui teal image header">
+                                <div class="logo content">
+                                    <img src="https://raw.githubusercontent.com/google/eddystone/master/branding/assets/png/EddyStone_final-01.png" alt="Eddystone Logo"/>
+                                </div>
+                            </h2>
+                            </div>
+                            <div class="field">
+                                <div class="ui left icon input">
+                                    <i class="world icon"></i>
+                                    <input type="text" name="url" placeholder="URL like http://www.prabhanshu.com/">
+                                </div>
+                            </div>
+                            <div class="field hexData">
+                                sample output
+                            </div>
+                            <div class="ui error message"></div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script
+          src="https://code.jquery.com/jquery-3.2.1.min.js"
+          integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+          crossorigin="anonymous"></script>
+        
+        <script>
+            $(document).ready(function() {
+                console.log( "ready!" );
+            });
+        </script>
+	</body>
+</html>
