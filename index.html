@@ -28,38 +28,42 @@
         <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
         <link rel="stylesheet" href="./css/semantic.css">
         <style>
-        body {
-            background: -webkit-linear-gradient(left bottom, #005C97, #363795); /* For Safari 5.1 to 6.0 */
-            background: -o-linear-gradient(top right, #005C97, #363795); /* For Opera 11.1 to 12.0 */
-            background: -moz-linear-gradient(top right, #005C97, #363795); /* For Firefox 3.6 to 15 */
-            background: linear-gradient(to top right, #005C97, #363795); /* Standard syntax */
-        }
-        
-        
-        .holder {
-          height: inherit;max-width: 300px;
-        }
-        .holder .middle {
-          height: 100%;
-        }
-        .holder .middle .segment {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            min-height: 400px;
-            padding: 35px;
-        }
-        .logo img {
-            display: block;
-            margin: auto;
-            width: 50%;
-            margin-bottom: 20px;
-        }
-        .hexData {
-            font-family: 'Source Code Pro', monospace;
-        }
+            body {
+                background: -webkit-linear-gradient(left bottom, #005C97, #363795); /* For Safari 5.1 to 6.0 */
+                background: -o-linear-gradient(top right, #005C97, #363795); /* For Opera 11.1 to 12.0 */
+                background: -moz-linear-gradient(top right, #005C97, #363795); /* For Firefox 3.6 to 15 */
+                background: linear-gradient(to top right, #005C97, #363795); /* Standard syntax */
+            }
+            .holder {
+                height: inherit;
+                max-width: 300px;
+            }
+            .holder .middle {
+                height: 100%;
+            }
+            .holder .middle .segment {
+                display: flex;
+                flex-direction: column;
+                min-height: 300px;
+                padding: 35px;
+            }
+            .holder .ui.error.message {
+                margin: 0px 0px 10px 0px;
+            }
+            .logo img {
+                display: block;
+                margin: auto;
+                width: 50%;
+                margin-bottom: 20px;
+            }
+            .hexData {
+                font-family: 'Source Code Pro', monospace;
+                background: grey;
+                color: white;
+                padding: 5px;
+            }
         </style>
-	</head>
+    </head>
 	<body>
         <div class="ui container holder">
             <div class="ui middle aligned center aligned grid">
@@ -79,10 +83,8 @@
                                     <input id="url" type="text" name="url" placeholder="URL like http://www.prabhanshu.com/">
                                 </div>
                             </div>
-                            <div class="field hexData">
-                                sample output
-                            </div>
                             <div class="ui error message"></div>
+                            <div class="field hexData">03 65 64 64 79 73 74 6f 6e 65</div>
                         </div>
 
                     </form>
@@ -93,22 +95,72 @@
           src="https://code.jquery.com/jquery-3.2.1.min.js"
           integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
           crossorigin="anonymous"></script>
+        <script src="./js/form.js"></script>
         
         <script>
             $(document).ready(function() {
-                console.log( "ready!" );
-                //$("#url").keyup(function() { console.log($(this).val());})
+                var urlRegex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/g;
+
+                function make2Digit(d) {
+                    return (d < 10) ? '0' + d.toString() : d.toString();
+                }
+                function getEddystoneEncoding(urlString) {
+                    var encoding = "",
+                    encode = [],
+                    schemes = [
+                        "http://www.",
+                        "https://www.",
+                        "http://",
+                        "https://",
+                    ],
+                    extensions = [
+                        ".com/", ".org/", ".edu/", ".net/", ".info/", ".biz/", ".gov/",
+                        ".com", ".org", ".edu", ".net", ".info", ".biz", ".gov",
+                    ],
+                    reg = urlRegex.exec(urlString);
+                    encode.push(make2Digit(schemes.indexOf(reg[1])));
+                    for(var i = reg[1].length; i < urlString.length; i++) {
+                        if (urlString[i] == ".") {
+                            for (var j = 0; j < extensions.length; j++) {
+                                if (urlString.startsWith(extensions[j], i)) {
+                                    i += extensions[j].length;
+                                    encode.push(make2Digit(j));
+                                }
+                            }
+                        } else {
+                            encode.push(urlString[i].charCodeAt(0).toString(16));
+                        }
+                    }
+                    return encode;
+                }
+
                 $('.ui.form').form({
                   fields: {
                     url: {
                       identifier: 'url',
                       rules: [{
                         type: 'regExp',
-                        value: /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,
-                        prompt: 'Please enter a valid address.'
+                        value: urlRegex,
+                        prompt: 'Please enter a valid URL.'
                       }]
                     }
                   }
+                });
+
+                $('.form').on('keyup keypress', function(e) {
+                    var keyCode = e.keyCode || e.which;
+                    if (keyCode === 13) {
+                        e.preventDefault();
+                        return false;
+                    }
+                });
+                $("#url").keyup(function() {
+                    var inputUrl = $(this).val().trim();
+                    if(inputUrl.length > 0) {
+                        if( $('.ui.form').form('validate form')) {
+                            $('.hexData').html(getEddystoneEncoding(inputUrl).join(' '));
+                        }
+                    }
                 });
             });
         </script>
