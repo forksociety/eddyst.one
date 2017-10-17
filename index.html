@@ -63,6 +63,7 @@
                 background: grey;
                 color: white;
                 padding: 5px;
+                min-height: 30px;
             }
         </style>
     </head>
@@ -89,7 +90,7 @@
                                 </div>
                             </div>
                             <div class="ui error message"></div>
-                            <div class="field hexData">03 65 64 64 79 73 74 6f 6e 65</div>
+                            <div class="field hexData"></div>
 
                             <div class="ui divider"></div>
                             <div>
@@ -180,6 +181,9 @@
                         }
                     }
                 });
+
+                var initialUrl = 'https://eddyst.one/';
+                $('.hexData').html(getEddystoneEncoding(initialUrl).join(' '));
             });
         </script>
 	</body>
