@@ -124,8 +124,7 @@
                     return (d < 10) ? '0' + d.toString() : d.toString();
                 }
                 function getEddystoneEncoding(urlString) {
-                    var encoding = "",
-                    encode = [],
+                    var encode = [],
                     schemes = [
                         "http://www.",
                         "https://www.",
@@ -142,7 +141,7 @@
                         if (urlString[i] == ".") {
                             for (var j = 0; j < extensions.length; j++) {
                                 if (urlString.startsWith(extensions[j], i)) {
-                                    i += extensions[j].length;
+                                    i += extensions[j].length - 1;
                                     encode.push(make2Digit(j));
                                 }
                             }
@@ -153,15 +152,25 @@
                     return encode;
                 }
 
+                $.fn.form.settings.rules.maxUrlLength = function(value, maxUrlLength) {
+                    return (window.encodedUrl.length <= maxUrlLength)
+                };
+
                 $('.ui.form').form({
                   fields: {
                     url: {
                       identifier: 'url',
-                      rules: [{
-                        type: 'regExp',
-                        value: urlRegex,
-                        prompt: 'Please enter a valid URL.'
-                      }]
+                      rules: [
+                        {
+                            type: 'regExp',
+                            value: urlRegex,
+                            prompt: 'Please enter a valid URL.'
+                        },
+                        {
+                            type: 'maxUrlLength[18]',
+                            prompt: 'Encoded url too long (max 18 bytes)'
+                        }
+                      ]
                     }
                   }
                 });
@@ -174,10 +183,14 @@
                     }
                 });
                 $("#url").keyup(function() {
+                    window.encodedUrl = '';
                     var inputUrl = $(this).val().trim();
                     if(inputUrl.length > 0) {
                         if( $('.ui.form').form('validate form')) {
-                            $('.hexData').html(getEddystoneEncoding(inputUrl).join(' '));
+                            window.encodedUrl = getEddystoneEncoding(inputUrl);
+                            if( $('.ui.form').form('validate form')) {
+                                $('.hexData').html(window.encodedUrl.join(' '));
+                            }
                         }
                     }
                 });
