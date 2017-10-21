@@ -123,6 +123,7 @@
                 function make2Digit(d) {
                     return (d < 10) ? '0' + d.toString() : d.toString();
                 }
+
                 function getEddystoneEncoding(urlString) {
                     var encode = [],
                     schemes = [
@@ -175,20 +176,18 @@
                   }
                 });
 
-                $('.form').on('keyup keypress', function(e) {
-                    var keyCode = e.keyCode || e.which;
-                    if (keyCode === 13) {
-                        e.preventDefault();
-                        return false;
-                    }
+                // disabling form submit
+                $('form').submit(function() {
+                    $('.ui.form').form('validate form');
+                    return false;
                 });
-                $("#url").keyup(function() {
+                $("#url").keyup(function(e) {
                     window.encodedUrl = '';
                     var inputUrl = $(this).val().trim();
                     if(inputUrl.length > 0) {
-                        if( $('.ui.form').form('validate form')) {
+                        if($('.ui.form').form('validate form')) {
                             window.encodedUrl = getEddystoneEncoding(inputUrl);
-                            if( $('.ui.form').form('validate form')) {
+                            if($('.ui.form').form('validate form')) {
                                 $('.hexData').html(window.encodedUrl.join(' '));
                             }
                         }
