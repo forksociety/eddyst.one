@@ -97,7 +97,19 @@
         <script>
             $(document).ready(function() {
                 console.log( "ready!" );
-                $("#url").keyup(function() { console.log($(this).val());})
+                //$("#url").keyup(function() { console.log($(this).val());})
+                $('.ui.form').form({
+                  fields: {
+                    url: {
+                      identifier: 'url',
+                      rules: [{
+                        type: 'regExp',
+                        value: /(http(s)?:\/\/.)?(www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,6}\b([-a-zA-Z0-9@:%_\+.~#?&//=]*)/g,
+                        prompt: 'Please enter a valid address.'
+                      }]
+                    }
+                  }
+                });
             });
         </script>
 	</body>
