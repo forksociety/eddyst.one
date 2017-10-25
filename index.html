@@ -90,8 +90,10 @@
                                 </div>
                             </div>
                             <div class="ui error message"></div>
-                            <div class="field hexData"></div>
-
+                            <div id="p1" class="field hexData"></div>
+                            <div class="button">
+                                <button onclick="copyToClipboard('#p1')">Copy</button>
+                            </div>
                             <div class="ui divider"></div>
                             <div>
                                 <a class="ui image label" href="https://github.com/google/eddystone/tree/master/eddystone-url" target="_blank">
@@ -116,6 +118,15 @@
         <script src="./js/form.js"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67526856-7"></script>
+	<script>
+            function copyToClipboard(element) {
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(element).text()).select();
+            document.execCommand("copy");
+            $temp.remove();
+            }
+        </script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
