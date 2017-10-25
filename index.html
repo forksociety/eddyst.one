@@ -74,11 +74,11 @@
                     <form class="ui large form">
                         <div class="ui piled segment">
                             <div class="field">
-                            <h2 class="ui teal image header">
-                                <div class="logo content">
-                                    <img src="https://raw.githubusercontent.com/google/eddystone/master/branding/assets/png/EddyStone_final-01.png" alt="Eddystone Logo"/>
-                                </div>
-                            </h2>
+                                <h2 class="ui teal image header">
+                                    <div class="logo content">
+                                        <img src="https://raw.githubusercontent.com/google/eddystone/master/branding/assets/png/EddyStone_final-01.png" alt="Eddystone Logo"/>
+                                    </div>
+                                </h2>
                             </div>
                             <div class="field">
                                 Type an URL and it will be converted to <a href="https://github.com/google/eddystone/tree/master/eddystone-url" target="_blank">Eddystone URL encoding</a>.
@@ -103,7 +103,6 @@
                                 <a class="ui image label" href="https://www.prabhanshu.com/" target="_blank">
                                     Prabhanshu Attri
                                 </a>
-
                             </div>
                         </div>
                     </form>
@@ -115,7 +114,15 @@
           integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
           crossorigin="anonymous"></script>
         <script src="./js/form.js"></script>
-        
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67526856-7"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-67526856-7');
+        </script>
         <script>
             $(document).ready(function() {
                 var urlRegex = /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/g;
