@@ -119,7 +119,7 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67526856-7"></script>
 	<script>
-            $(".hexData").click(function() {
+            $(".hexData").on("click") function() {
             var inputEle = $("<input>");
             $("body").append(inputEle);
             inputEle.val($(element).text()).select();
