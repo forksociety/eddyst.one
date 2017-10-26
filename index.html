@@ -90,9 +90,9 @@
                                 </div>
                             </div>
                             <div class="ui error message"></div>
-                            <div id="p1" class="field hexData"></div>
+                            <div class="field hexData"></div>
                             <div class="button">
-                                <button onclick="copyToClipboard('#p1')">Copy</button>
+                                <button onclick="copyToClipboard('.hexData')">Copy</button>
                             </div>
                             <div class="ui divider"></div>
                             <div>
@@ -119,12 +119,12 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67526856-7"></script>
 	<script>
-            function copyToClipboard(element) {
-            var $temp = $("<input>");
-            $("body").append($temp);
-            $temp.val($(element).text()).select();
+            $(".hexData").on("click", function() {
+            var inputEle = $("<input>");
+            $("body").append(inputEle);
+            inputEle.val($(element).text()).select();
             document.execCommand("copy");
-            $temp.remove();
+            inputEle.remove();
             }
         </script>
         <script>
