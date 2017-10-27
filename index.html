@@ -119,10 +119,11 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67526856-7"></script>
 	<script>
-            $(".hexData").on("click", function() {
-            var inputEle = $("<input>");
-            $("body").append(inputEle);
-            inputEle.val($(element).text()).select();
+            $('.hexData').on("click", function() {
+            var inputEle = $("<input />")
+            .appendTo("body")
+            .val($('.hexData').text())
+            .select();
             document.execCommand("copy");
             inputEle.remove();
             });
