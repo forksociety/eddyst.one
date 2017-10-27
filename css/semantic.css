@@ -12566,19 +12566,6 @@ a.ui.label {
   border-radius: 0em 0.28571429rem 0.28571429rem 0em;
 }
 
-/*******************************
-         Copy Button
-*******************************/
-
-button.bttnColor {
-  border: none;
-  padding: 0.5833em 0.833em 0.5833em 0.833em;
-  border-radius: 0.28571429rem;
-  cursor: pointer;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.6);
-}
-
 /*-------------------
          Tag
 --------------------*/
