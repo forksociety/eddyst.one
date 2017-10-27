@@ -64,6 +64,7 @@
                 color: white;
                 padding: 5px;
                 min-height: 30px;
+		cursor: pointer;
             }
         </style>
     </head>
@@ -91,7 +92,6 @@
                             </div>
                             <div class="ui error message"></div>
                             <div class="field hexData"></div>
-
                             <div class="ui divider"></div>
                             <div>
                                 <a class="ui image label" href="https://github.com/google/eddystone/tree/master/eddystone-url" target="_blank">
@@ -116,6 +116,16 @@
         <script src="./js/form.js"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67526856-7"></script>
+	<script>
+            $('.hexData').on("click", function() {
+            var inputEle = $("<input />")
+            .appendTo("body")
+            .val($('.hexData').text())
+            .select();
+            document.execCommand("copy");
+            inputEle.remove();
+            });
+        </script>
         <script>
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
