@@ -64,6 +64,7 @@
                 color: white;
                 padding: 5px;
                 min-height: 30px;
+		cursor: pointer;
             }
         </style>
     </head>
@@ -90,10 +91,7 @@
                                 </div>
                             </div>
                             <div class="ui error message"></div>
-                            <div id="p1" class="field hexData"></div>
-                            <div class="button">
-                                <button onclick="copyToClipboard('#p1')">Copy</button>
-                            </div>
+                            <div class="field hexData"></div>
                             <div class="ui divider"></div>
                             <div>
                                 <a class="ui image label" href="https://github.com/google/eddystone/tree/master/eddystone-url" target="_blank">
@@ -119,13 +117,14 @@
         <!-- Global site tag (gtag.js) - Google Analytics -->
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67526856-7"></script>
 	<script>
-            function copyToClipboard(element) {
-            var $temp = $("<input>");
-            $("body").append($temp);
-            $temp.val($(element).text()).select();
+            $('.hexData').on("click", function() {
+            var inputEle = $("<input />")
+            .appendTo("body")
+            .val($('.hexData').text())
+            .select();
             document.execCommand("copy");
-            $temp.remove();
-            }
+            inputEle.remove();
+            });
         </script>
         <script>
             window.dataLayer = window.dataLayer || [];
