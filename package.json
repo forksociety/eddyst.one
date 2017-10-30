@@ -19,4 +19,9 @@
     "url": "https://github.com/nirmankarta/eddyst.one/issues"
   },
   "homepage": "https://github.com/nirmankarta/eddyst.one#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^3.0.0"
+  }
 }
