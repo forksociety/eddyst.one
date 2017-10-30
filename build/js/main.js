@@ -44,15 +44,15 @@ $(document).ready(function() {
             url: {
                 identifier: 'url',
                 rules: [
-                {
-                    type: 'regExp',
-                    value: urlRegex,
-                    prompt: 'Please enter a valid URL.'
-                },
-                {
-                    type: 'maxUrlLength[18]',
-                    prompt: 'Encoded url too long (max 18 bytes)'
-                }
+                    {
+                        type: 'regExp',
+                        value: urlRegex,
+                        prompt: 'Please enter a valid URL.'
+                    },
+                    {
+                        type: 'maxUrlLength[18]',
+                        prompt: 'Encoded url too long (max 18 bytes)'
+                    }
                 ]
             }
         }
