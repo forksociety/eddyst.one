@@ -31,3 +31,9 @@ gulp.task( "sass", function() {
         }) )
         .pipe( gulp.dest( config.path.dist ) )
 });
+
+// Watch files for changes
+gulp.task( "watch", function() {
+    gulp.watch( config.buildPath.js, ["js"] );
+    gulp.watch( config.buildPath.scss, ["sass"] );
+});
