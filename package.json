@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://christoflee@github.com/ChristofLee/eddyst.one.git"
+    "url": "git+https://nirmankarta@github.com/nirmankarta/eddyst.one.git"
   },
   "keywords": [
     "eddystone"
@@ -16,7 +16,7 @@
   "author": "PrabhanshuAttri",
   "license": "GPL-3.0",
   "bugs": {
-    "url": "https://github.com/ChristofLee/eddyst.one/issues"
+    "url": "https://github.com/nirmankarta/eddyst.one/issues"
   },
-  "homepage": "https://github.com/ChristofLee/eddyst.one#readme"
+  "homepage": "https://github.com/nirmankarta/eddyst.one#readme",
 }
