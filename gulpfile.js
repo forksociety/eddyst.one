@@ -37,3 +37,7 @@ gulp.task( "watch", function() {
     gulp.watch( config.buildPath.js, ["js"] );
     gulp.watch( config.buildPath.scss, ["sass"] );
 });
+
+gulp.task( "default", ["js", "sass"], function(){
+    gulp.start( "watch" );
+});
