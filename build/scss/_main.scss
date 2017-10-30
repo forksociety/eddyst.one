@@ -1,0 +1,43 @@
+body {
+    background: -webkit-linear-gradient(left bottom, #005C97, #363795); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(top right, #005C97, #363795); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(top right, #005C97, #363795); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to top right, #005C97, #363795); /* Standard syntax */
+}
+
+.holder {
+    height: inherit;
+    max-width: 300px;
+}
+
+.holder .middle {
+    height: 100%;
+}
+
+.holder .middle .segment {
+    display: flex;
+    flex-direction: column;
+    min-height: 300px;
+    padding: 35px;
+}
+
+.holder .ui.error.message {
+    margin: 0px 0px 10px 0px;
+}
+
+.logo img {
+    display: block;
+    margin: auto;
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.hexData {
+    background: grey;
+    color: white;
+    font-family: 'Source Code Pro', monospace;
+    font-size: 16px;
+    font-weight: 600;
+    min-height: 30px;
+    padding: 5px;
+}
