@@ -10,9 +10,14 @@ var config = {
     }
 }
 
+config.buildPath = {
+    js: config.path.build + "/js/*.js",
+    scss: config.path.build + "/scss/*.scss"
+}
+
 // Join and uglify all our JS files
 gulp.task( "js", function() {
-    gulp.src( config.path.build + "/js/*.js" )
+    gulp.src( config.buildPath.js )
         .pipe( concat("script.js") )
         .pipe( uglify() )
         .pipe( gulp.dest( config.path.dist ) )
@@ -20,7 +25,7 @@ gulp.task( "js", function() {
 
 // Minify our SCSS files
 gulp.task( "sass", function() {
-    gulp.src( config.path.build + "/scss/*.scss" )
+    gulp.src( config.buildPath.scss )
         .pipe( sass({
             outputStyle: "compressed"
         }) )
