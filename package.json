@@ -4,6 +4,8 @@
   "description": "A webpage to convert url to eddystone URL",
   "main": "index.js",
   "scripts": {
+    "build": "gulp sass && gulp js",
+    "dev": "gulp",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
