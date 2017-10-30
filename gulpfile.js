@@ -10,10 +10,13 @@ var config = {
     }
 }
 
-gulp.task( 'js', function() {
-    gulp.src( config.path.build + '/js/*.js' )
+// Join and uglify all our JS files
+gulp.task( "js", function() {
+    gulp.src( config.path.build + "/js/*.js" )
+        .pipe( concat("script.js") )
         .pipe( uglify() )
-        .pipe(concat('script.js'))
+        .pipe( gulp.dest( config.path.dist ) )
+});
 
 // Minify our SCSS files
 gulp.task( "sass", function() {
