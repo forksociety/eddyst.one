@@ -64,6 +64,7 @@
                 color: white;
                 padding: 5px;
                 min-height: 30px;
+		cursor: pointer;
             }
         </style>
     </head>
@@ -115,6 +116,16 @@
           crossorigin="anonymous"></script>
         <script src="./js/form.js"></script>
         <!-- Global site tag (gtag.js) - Google Analytics -->
+	<script>
+            $('.hexData').on("click", function() {
+            var inputEle = $("<input />")
+            .appendTo("body")
+            .val($('.hexData').text())
+            .select();
+            document.execCommand("copy");
+            inputEle.remove();
+            });
+        </script>
         <script async src="https://www.googletagmanager.com/gtag/js?id=UA-67526856-7"></script>
         <script>
             window.dataLayer = window.dataLayer || [];
