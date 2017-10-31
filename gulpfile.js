@@ -34,7 +34,7 @@ gulp.task("js", () => {
 });
 
 // gulp watch for css and js
-gulp.task("watch", function() {
+gulp.task("watch", () => {
     gulp.watch(config.jsSrcPath, ["js"]);
     gulp.watch(config.cssSrcPath, ["css"]);
 });
