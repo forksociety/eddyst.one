@@ -1,0 +1,31 @@
+{
+  "name": "eddyst.one",
+  "version": "1.0.0",
+  "description": "A webpage to convert url to eddystone URL",
+  "main": "index.js",
+  "scripts": {
+    "build": "gulp sass && gulp js",
+    "dev": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://nirmankarta@github.com/nirmankarta/eddyst.one.git"
+  },
+  "keywords": [
+    "eddystone"
+  ],
+  "author": "PrabhanshuAttri",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/nirmankarta/eddyst.one/issues"
+  },
+  "homepage": "https://github.com/nirmankarta/eddyst.one#readme",
+  "devDependencies": {
+    "browser-sync": "^2.18.13",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^3.0.0"
+  }
+}
