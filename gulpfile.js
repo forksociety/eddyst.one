@@ -14,7 +14,7 @@ config.cssDistPath = config.distPath + 'css/';
 config.jsDistPath = config.distPath + 'js/';
 
 // CSS Minification 
-gulp.task('css', () => {
+gulp.task("css", () => {
   return gulp.src(config.cssSrcPath)
     .pipe(cleanCSS({compatibility: 'ie8', level: {1: {specialComments: 0}} }))
     .pipe(rename({
@@ -24,7 +24,7 @@ gulp.task('css', () => {
 });
 
 // JS Minification 
-gulp.task('js', () => {
+gulp.task("js", () => {
   return gulp.src(config.jsSrcPath)
     .pipe(uglify())
     .pipe(rename({
@@ -40,4 +40,4 @@ gulp.task("watch", function() {
 });
 
 //gulp default
-gulp.task('default',  ['css', 'js']);
+gulp.task("default",  ['css', 'js']);
