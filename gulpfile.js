@@ -13,7 +13,7 @@ config.jsSrcPath = config.srcPath + "js/*.js";
 config.cssDistPath = config.distPath + "css/";
 config.jsDistPath = config.distPath + "js/";
 
-// CSS Minification 
+// CSS Minification
 gulp.task("css", () => {
   return gulp.src(config.cssSrcPath)
     .pipe(cleanCSS({compatibility: "ie8", level: {1: {specialComments: 0}} }))
@@ -23,7 +23,7 @@ gulp.task("css", () => {
     .pipe(gulp.dest(config.cssDistPath));
 });
 
-// JS Minification 
+// JS Minification
 gulp.task("js", () => {
   return gulp.src(config.jsSrcPath)
     .pipe(uglify())
