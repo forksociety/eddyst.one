@@ -1,7 +1,6 @@
 var gulp = require("gulp");
 var uglify = require("gulp-uglify");
 var concat = require("gulp-concat");
-var cleanCSS = require("gulp-clean-css");
 var sass = require("gulp-sass");
 
 var config = {};
@@ -15,15 +14,13 @@ config.jsSrcPath = config.srcPath + "js/*.js";
 // JS files to concatenate
 config.jsFilesToConcat = [
     // The order of files here *matters*
-    config.vendorPath + "form.js"
+    config.vendorPath + "form.js",
+    config.srcPath + "js/main.js"
 ];
 
 // Minify our SCSS files
 gulp.task("sass", () => {
     return gulp.src(config.sassSrcPath)
-        .pipe(cleanCSS({
-            compatibility: "ie8", level: {1: {specialComments: 0}}
-        }))
         .pipe(sass({
             outputStyle: "compressed"
         }))
