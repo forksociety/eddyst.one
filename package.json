@@ -1,0 +1,26 @@
+{
+  "name": "eddyst.one",
+  "version": "1.0.0",
+  "description": "A webpage to convert url to eddystone URL",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nirmankarta/eddyst.one.git"
+  },
+  "author": "nirmankarta",
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/nirmankarta/eddyst.one/issues"
+  },
+  "keywords": ["eddystone", "eddyst.one", "PyBeacon"],
+  "homepage": "https://github.com/nirmankarta/eddyst.one#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^3.9.0",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglify": "^3.0.0"
+  }
+}
