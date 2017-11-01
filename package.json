@@ -15,7 +15,11 @@
   "bugs": {
     "url": "https://github.com/nirmankarta/eddyst.one/issues"
   },
-  "keywords": ["eddystone", "eddyst.one", "PyBeacon"],
+  "keywords": [
+    "eddystone",
+    "eddyst.one",
+    "PyBeacon"
+  ],
   "homepage": "https://github.com/nirmankarta/eddyst.one#readme",
   "devDependencies": {
     "gulp": "^3.9.1",
