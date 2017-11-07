@@ -3,6 +3,7 @@ var uglify = require("gulp-uglify");
 var concat = require("gulp-concat");
 var sass = require("gulp-sass");
 var rename = require("gulp-rename");
+var autoprefixer = require('gulp-autoprefixer');
 
 var config = {};
 config.srcPath = "./src/";
@@ -22,6 +23,10 @@ config.jsFilesToConcat = [
 // Minify our SCSS files
 gulp.task("sass", () => {
     return gulp.src(config.sassSrcPath)
+        .pipe(autoprefixer({
+            browsers: ['last 2 versions'],
+            cascade: false
+        }))
         .pipe(sass({
             outputStyle: "compressed"
         }))
