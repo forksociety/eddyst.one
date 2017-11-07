@@ -16,8 +16,8 @@ config.jsSrcPath = config.srcPath + "js/*.js";
 // JS files to concatenate
 config.jsFilesToConcat = [
     // The order of files here *matters*
-    config.vendorPath + "form.js",
-    config.srcPath + "js/main.js"
+    config.vendorPath + "*.js",
+    config.srcPath + "js/*.js"
 ];
 
 // Minify our SCSS files
