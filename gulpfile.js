@@ -2,6 +2,7 @@ var gulp = require("gulp");
 var uglify = require("gulp-uglify");
 var concat = require("gulp-concat");
 var sass = require("gulp-sass");
+var rename = require("gulp-rename");
 
 var config = {};
 config.srcPath = "./src/";
@@ -24,13 +25,14 @@ gulp.task("sass", () => {
         .pipe(sass({
             outputStyle: "compressed"
         }))
+        .pipe(rename("style.min.css"))
         .pipe(gulp.dest(config.distPath));
 });
 
 // Join and uglify our JS files
 gulp.task("js", () => {
     return gulp.src(config.jsFilesToConcat)
-        .pipe(concat("script.js"))
+        .pipe(concat("script.min.js"))
         .pipe(uglify())
         .pipe(gulp.dest(config.distPath));
 });
